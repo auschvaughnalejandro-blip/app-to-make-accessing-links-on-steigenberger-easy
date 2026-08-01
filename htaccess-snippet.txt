@@ -1,0 +1,82 @@
+================================================================================
+  ENABLE INSTANT LOADING — one-time change to the six WordPress sites
+================================================================================
+
+WHAT THIS DOES
+--------------
+The hub page at https://links.steigenbergerhoteldoha.com/ asks the browser to
+load these pages in the background the moment a guest hovers over (desktop) or
+touches (mobile) a link. When they actually tap, the page is already rendered
+and appears instantly instead of after the 1.4-2.8 seconds these sites currently
+take to respond.
+
+For safety, browsers refuse to do this unless the destination site explicitly
+opts in with a response header. That opt-in is the one line below.
+
+WITHOUT this change, nothing breaks — the links simply load at their normal
+speed. Everything else the hub does (warming the connection, tap feedback)
+keeps working regardless.
+
+
+WHERE TO PUT IT
+---------------
+Add the block to the .htaccess file in the web root of EACH of these six sites
+(in cPanel: File Manager -> the subdomain's folder -> .htaccess):
+
+    directory.steigenbergerhoteldoha.com
+    pillowmenu.steigenbergerhoteldoha.com
+    spa.steigenbergerhoteldoha.com
+    limousine.steigenbergerhoteldoha.com
+    excursions.steigenbergerhoteldoha.com
+    tv.steigenbergerhoteldoha.com
+
+Paste it at the TOP of the file, above the "# BEGIN WordPress" line. WordPress
+rewrites the section between its own BEGIN/END markers, so anything placed
+inside that block can be erased during an update.
+
+
+THE SNIPPET
+-----------
+
+# --- Allow same-site prerendering from links.steigenbergerhoteldoha.com ---
+<IfModule mod_headers.c>
+  Header set Supports-Loading-Mode "credentialed-prerender"
+</IfModule>
+# --- end ---
+
+
+HOW TO CONFIRM IT WORKED
+------------------------
+Run this for each subdomain — it should print the header back:
+
+    curl -sI https://spa.steigenbergerhoteldoha.com/ | grep -i supports-loading-mode
+
+Expected output:
+
+    supports-loading-mode: credentialed-prerender
+
+If nothing prints, mod_headers may be disabled on the account. Ask Bluehost
+support to enable mod_headers; it is standard on their shared plans.
+
+
+IS THIS SAFE?
+-------------
+Yes. It is a passive response header:
+
+  - It does not change how the site looks or behaves for visitors.
+  - Browsers that do not understand it ignore it completely.
+  - It only permits prerendering from pages on the same registrable domain
+    (*.steigenbergerhoteldoha.com), so no third-party site can use it.
+  - It is reversible: delete the block and prerendering stops.
+
+One thing to be aware of: prerendered visits arrive slightly earlier than the
+guest's actual click, and analytics tools count them at activation rather than
+at load. If you add analytics later, that is the only behaviour worth checking.
+
+
+A NOTE ON THE OTHER TWO LINKS
+-----------------------------
+hrewards.com and app.getalacarte.com are third-party sites on entirely
+different domains. Browsers do not permit prerendering across sites at all, no
+matter what headers are set, so those two links cannot be made instant. They
+still get the connection-warming benefit (~0.5s faster) from the hub.

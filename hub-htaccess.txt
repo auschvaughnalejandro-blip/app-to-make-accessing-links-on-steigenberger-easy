@@ -1,0 +1,125 @@
+================================================================================
+  HOSTING THE HUB ON BLUEHOST INSTEAD OF VERCEL
+================================================================================
+
+This is the Apache equivalent of vercel.json, for serving the hub from the same
+Bluehost account as the other sites.
+
+
+THE ONE RULE THAT MATTERS
+-------------------------
+Upload the built page as a STATIC FILE. Do not paste it into a WordPress page,
+post, or block.
+
+Measured on spa.steigenbergerhoteldoha.com:
+
+    static file served by Apache ....  ~0.72s to first byte
+    WordPress page (PHP + theme) ....  ~1.29s to first byte, ~1.97s total
+
+A WordPress page also wraps the markup in the active theme, which pulls in the
+theme CSS, jQuery and any plugin assets — several hundred KB on top of a page
+that is currently 17 KB. The QR code is the guest's first impression, so this
+single choice is worth more than every other optimisation combined.
+
+Prerendering is unaffected by hosting: "same-site" is decided by the registrable
+domain, not by which server answers. links.steigenbergerhoteldoha.com on
+Bluehost is still same-site with the other six subdomains.
+
+
+SETUP
+-----
+1. In cPanel -> Domains -> Create A New Domain, add the subdomain
+
+       links.steigenbergerhoteldoha.com
+
+   with its own document root, e.g. public_html/links
+
+2. Do NOT install WordPress on it. This subdomain serves flat files only.
+
+3. Run `npm run build` locally, then upload the CONTENTS of dist/ into that
+   document root:
+
+       index.html
+       favicon.svg
+       apple-touch-icon.png
+       icon-192.png
+       icon-512.png
+       site.webmanifest
+
+4. Create a file named .htaccess in the same folder, containing the block below.
+
+5. Confirm it works:
+
+       curl -sI https://links.steigenbergerhoteldoha.com/ | head -20
+
+   Expect "HTTP/1.1 200", "content-type: text/html" and "content-encoding: gzip".
+
+
+THE .htaccess FILE
+------------------
+
+# --- Steigenberger guest services hub -------------------------------------
+
+# Serve the static page, never a WordPress index.php.
+DirectoryIndex index.html
+
+# Force HTTPS. The QR encodes an https:// URL, so this only catches guests who
+# type the address by hand, but it avoids a redirect-to-https round trip later.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+# Compression. Bluehost already gzips, this makes it explicit for the hub.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript
+  AddOutputFilterByType DEFLATE image/svg+xml application/manifest+json
+</IfModule>
+
+<IfModule mod_headers.c>
+  # The page changes only when you redeploy it, but a stale hub is worse than a
+  # slightly slower one, so revalidate hourly rather than caching for days.
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+
+  # Icons are stable; cache them for a week.
+  <FilesMatch "\.(png|svg|webp|ico|webmanifest)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "DENY"
+</IfModule>
+
+# Correct MIME types (Apache does not know these by default).
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+  AddType image/svg+xml .svg
+  AddType image/webp .webp
+</IfModule>
+
+# --- end -------------------------------------------------------------------
+
+
+IF THE SUBDOMAIN ALREADY HAS WORDPRESS ON IT
+--------------------------------------------
+Putting the hub in a folder alongside a WordPress install works, but WordPress's
+own .htaccess rewrites unmatched requests to index.php and its DirectoryIndex
+usually lists index.php first — so a bare request to "/" would hit WordPress
+rather than your index.html.
+
+Add "DirectoryIndex index.html index.php" ABOVE the "# BEGIN WordPress" marker.
+Anything placed between the BEGIN/END WordPress markers gets overwritten when
+WordPress rewrites that file.
+
+A clean subdomain with no WordPress is the simpler and faster option.
+
+
+UPDATING THE PAGE LATER
+-----------------------
+Edit src/links.ts, run `npm run build`, and re-upload dist/index.html. There is
+no build step on the server and no plugin to keep updated. The QR code never
+changes — it points at the hub, not at individual links.
