@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Steigenberger Hotel Doha — Guest Services</title>
+<meta name="description" content="Quick access to guest services at Steigenberger Hotel Doha: guest directory, dining, spa, offers, transport, excursions, TV guide and pillow menu.">
+<link rel="canonical" href="https://links.steigenbergerhoteldoha.com/">
+<meta name="theme-color" content="#f4f1ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14130f" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Steigenberger Hotel Doha — Guest Services">
+<meta property="og:description" content="All guest services in one place.">
+<meta property="og:url" content="https://links.steigenbergerhoteldoha.com/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!--
+  PRECONNECT — one pair of tags per destination origin. This opens the
+  connection (DNS + TLS) while the guest is still reading the page, so the
+  cost is already paid by the time they tap a link. Costs nothing if the
+  guest never taps that link. If you add or remove a destination in the
+  cards below, add or remove its origin here too.
+-->
+<link rel="preconnect" href="https://directory.steigenbergerhoteldoha.com" crossorigin>
+<link rel="dns-prefetch" href="https://directory.steigenbergerhoteldoha.com">
+<link rel="preconnect" href="https://pillowmenu.steigenbergerhoteldoha.com" crossorigin>
+<link rel="dns-prefetch" href="https://pillowmenu.steigenbergerhoteldoha.com">
+<link rel="preconnect" href="https://tv.steigenbergerhoteldoha.com" crossorigin>
+<link rel="dns-prefetch" href="https://tv.steigenbergerhoteldoha.com">
+<link rel="preconnect" href="https://app.getalacarte.com" crossorigin>
+<link rel="dns-prefetch" href="https://app.getalacarte.com">
+<link rel="preconnect" href="https://hrewards.com" crossorigin>
+<link rel="dns-prefetch" href="https://hrewards.com">
+<link rel="preconnect" href="https://spa.steigenbergerhoteldoha.com" crossorigin>
+<link rel="dns-prefetch" href="https://spa.steigenbergerhoteldoha.com">
+<link rel="preconnect" href="https://excursions.steigenbergerhoteldoha.com" crossorigin>
+<link rel="dns-prefetch" href="https://excursions.steigenbergerhoteldoha.com">
+<link rel="preconnect" href="https://limousine.steigenbergerhoteldoha.com" crossorigin>
+<link rel="dns-prefetch" href="https://limousine.steigenbergerhoteldoha.com">
+<link rel="preconnect" href="https://i0.wp.com" crossorigin>
+<link rel="dns-prefetch" href="https://i0.wp.com">
+
+<style>
+  :root {
+    --bg: #f4f1ec;
+    --surface: #fffffe;
+    --border: #e6e0d6;
+    --border-strong: #d4ccbe;
+    --text: #1c1a17;
+    --text-muted: #6b645a;
+    --accent: #1c1a17;
+    --ring: #8a7c66;
+    --shadow: 0 1px 2px rgb(28 26 23 / 5%), 0 1px 3px rgb(28 26 23 / 4%);
+    --shadow-hover: 0 2px 4px rgb(28 26 23 / 7%), 0 6px 16px rgb(28 26 23 / 8%);
+    --radius: 14px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --surface: #1f1d19;
+      --border: #302d26;
+      --border-strong: #423d33;
+      --text: #f2efe9;
+      --text-muted: #a49b8c;
+      --accent: #f2efe9;
+      --ring: #bfae90;
+      --shadow: 0 1px 2px rgb(0 0 0 / 40%);
+      --shadow-hover: 0 2px 4px rgb(0 0 0 / 45%), 0 6px 16px rgb(0 0 0 / 35%);
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    padding: 2rem 1rem 3.5rem;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 600px; margin: 0 auto; }
+
+  /* ---------- Header ---------- */
+
+  .header { text-align: center; margin-bottom: 2.5rem; }
+
+  /* Stays light in both themes on purpose: logo.webp is a flat image with no
+     transparency, so a dark badge would show a block behind it. */
+  .logo {
+    width: 112px;
+    height: 112px;
+    margin: 0 auto 1.25rem;
+    border-radius: 50%;
+    background: #fffffe;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: 0 14px;
+  }
+
+  .logo img { width: 100%; height: auto; display: block; }
+
+  h1 {
+    margin: 0 0 0.625rem;
+    font-size: clamp(1.375rem, 5.5vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    max-width: 30rem;
+    margin-inline: auto;
+    text-wrap: pretty;
+  }
+
+  /* ---------- Sections ---------- */
+
+  .section { margin-bottom: 2rem; }
+
+  .section h2 {
+    margin: 0 0 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-muted);
+  }
+
+  .links { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+
+  /* ---------- Link cards ---------- */
+
+  .card {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    align-items: center;
+    gap: 0.9375rem;
+    min-height: 72px;
+    padding: 0.875rem 1.125rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+
+  .card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-hover); transform: translateY(-1px); }
+  .card:active { transform: translateY(0) scale(0.995); box-shadow: var(--shadow); }
+  .card:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+
+  .icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--accent);
+  }
+
+  .icon svg { width: 24px; height: 24px; display: block; }
+
+  .card-text { min-width: 0; }
+  .card-title { display: block; font-size: 1rem; font-weight: 600; letter-spacing: 0.005em; }
+  .card-desc { display: block; margin-top: 0.125rem; font-size: 0.8125rem; color: var(--text-muted); text-wrap: pretty; }
+
+  /* Marks a link that opens a third-party site. */
+  .card-ext {
+    display: inline-block;
+    margin-left: 0.375rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    vertical-align: 1px;
+  }
+
+  /* Visible to screen readers only. */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ---------- Footer ---------- */
+
+  .footer { margin-top: 2.75rem; text-align: center; font-size: 0.75rem; color: var(--text-muted); }
+
+  /* Icon-only links, so the 44px hit area (not just the 20px glyph) is what
+     meets the ≥44px tap target bar the rest of the page holds to. */
+  .social { display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+
+  .social-link {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    color: var(--accent);
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+
+  .social-link svg { width: 20px; height: 20px; display: block; }
+  .social-link:hover { border-color: var(--border-strong); box-shadow: var(--shadow-hover); transform: translateY(-1px); }
+  .social-link:active { transform: translateY(0) scale(0.96); box-shadow: var(--shadow); }
+  .social-link:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+
+  /* ---------- Tap feedback ----------
+     A slow destination (WordPress on shared hosting) can take a second or
+     more to respond after the tap. Without feedback the page looks frozen
+     and guests tap again. Driven by the script at the bottom of the page;
+     its absence changes nothing functionally. */
+
+  #progress {
+    position: fixed;
+    inset: 0 auto auto 0;
+    height: 3px;
+    width: 0;
+    background: var(--ring);
+    opacity: 0;
+    z-index: 9999;
+    transition: width 0.35s ease-out, opacity 0.2s ease;
+  }
+
+  #progress.on {
+    width: 82%;
+    opacity: 1;
+    transition: width 8s cubic-bezier(0.1, 0.8, 0.2, 1), opacity 0.15s ease;
+  }
+
+  .card.is-loading { border-color: var(--border-strong); }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 380px) {
+    .card { grid-template-columns: 40px 1fr; gap: 0.75rem; padding: 0.8125rem 0.9375rem; min-height: 64px; }
+    .icon { width: 40px; height: 40px; }
+    .icon svg { width: 21px; height: 21px; }
+  }
+
+  @media (min-width: 640px) {
+    body { padding-top: 3.5rem; }
+  }
+
+  /* ---------- Preferences ---------- */
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  @media print {
+    .card { break-inside: avoid; }
+    #progress { display: none; }
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+
+<header class="header">
+  <div class="logo"><img src="/logo.webp" alt="" width="256" height="80" decoding="async"></div>
+  <h1>Steigenberger Hotel Doha</h1>
+  <p class="tagline">The flagship hotel of H World International in GCC, under one of its renowned brands, Steigenberger Resorts &amp; Hotels.</p>
+</header>
+
+<main>
+
+  <!--
+    ============================================================
+    LINK CARDS — this is the only part of the page you'll edit
+    regularly. Each <section> is a group of cards.
+
+    To add a same-site link (a *.steigenbergerhoteldoha.com URL):
+      1. Copy a <li>...</li> card block below and edit it.
+      2. Add its origin to the PRECONNECT block in <head> above.
+      3. Add its full URL to the "urls" array in the
+         <script type="speculationrules"> block near the bottom
+         of this file, so it gets the instant-tap treatment too.
+
+    To add a link to a different domain (like the two below that
+    link to hrewards.com and app.getalacarte.com):
+      1. Copy a card block and edit it.
+      2. Add rel="noopener" to the <a> tag (third-party link, this
+         page no longer controls what opens).
+      3. Add the "opens an external site" badge — copy it from the
+         Restaurants or Deals card below.
+      4. Optionally add its origin to PRECONNECT. Do NOT add it to
+         the speculationrules script — browsers refuse to prerender
+         a fully cross-site destination, so it would do nothing.
+    ============================================================
+  -->
+
+  <section class="section">
+    <h2>Your Stay</h2>
+    <ul class="links">
+      <li>
+        <a class="card" id="link-directory" href="https://directory.steigenbergerhoteldoha.com/">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+          <span class="card-text">
+            <span class="card-title">Guest Directory</span>
+            <span class="card-desc">Hotel services, facilities &amp; contacts</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="card" id="link-pillow-menu" href="https://pillowmenu.steigenbergerhoteldoha.com/">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 8.5C3.5 6.6 5 5 7 5h10c2 0 3.5 1.6 3.5 3.5v7c0 1.9-1.5 3.5-3.5 3.5H7c-2 0-3.5-1.6-3.5-3.5z"/><path d="M7 9c3.2 1.3 6.8 1.3 10 0"/><path d="M7 15c3.2-1.3 6.8-1.3 10 0"/></svg></span>
+          <span class="card-text">
+            <span class="card-title">Pillow Menu</span>
+            <span class="card-desc">Choose your perfect pillow</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="card" id="link-tv-guide" href="https://tv.steigenbergerhoteldoha.com/">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="m17 2-5 5-5-5"/></svg></span>
+          <span class="card-text">
+            <span class="card-title">TV Guide</span>
+            <span class="card-desc">100 channels available in your room</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Dining &amp; Offers</h2>
+    <ul class="links">
+      <li>
+        <a class="card" id="link-restaurants" href="https://app.getalacarte.com/#/app/dineout/restaurantcollection/steigenberger-hotel-doha" rel="noopener">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2v6a2 2 0 0 0 2 2 2 2 0 0 0 2-2V2"/><path d="M8 10v12"/><path d="M17 2c1.4 2 2 4.5 2 7s-.9 4-2 4-2-1.5-2-4 .6-5 2-7z"/><path d="M17 13v9"/></svg></span>
+          <span class="card-text">
+            <span class="card-title">Restaurants &amp; Dine Out<span class="card-ext" aria-hidden="true">↗</span><span class="sr-only"> (opens an external site)</span></span>
+            <span class="card-desc">Browse menus and order</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="card" id="link-deals" href="https://hrewards.com/en/steigenberger-hotel-doha/deals" rel="noopener">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10z"/><circle cx="7" cy="7" r="1.25"/></svg></span>
+          <span class="card-text">
+            <span class="card-title">Deals &amp; Packages<span class="card-ext" aria-hidden="true">↗</span><span class="sr-only"> (opens an external site)</span></span>
+            <span class="card-desc">Current offers and staycations</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Wellness &amp; Leisure</h2>
+    <ul class="links">
+      <li>
+        <a class="card" id="link-spa" href="https://spa.steigenbergerhoteldoha.com/">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span>
+          <span class="card-text">
+            <span class="card-title">The Opal Spa</span>
+            <span class="card-desc">Luxury urban spa treatments</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="card" id="link-excursions" href="https://excursions.steigenbergerhoteldoha.com/">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m1 6 7-3 8 3 7-3v15l-7 3-8-3-7 3z"/><path d="M8 3v15"/><path d="M16 6v15"/></svg></span>
+          <span class="card-text">
+            <span class="card-title">Excursions</span>
+            <span class="card-desc">Tours and activities around Doha</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Getting Around</h2>
+    <ul class="links">
+      <li>
+        <a class="card" id="link-limousine" href="https://limousine.steigenbergerhoteldoha.com/">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><path d="M9 17h6"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></span>
+          <span class="card-text">
+            <span class="card-title">Airport Shuttle &amp; Limousine</span>
+            <span class="card-desc">Transfers and chauffeur service</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <!-- Social links: to add or remove one, copy/edit an <a class="social-link">
+       block. It only needs an aria-label (there's no visible text) and the
+       icon svg — nothing else on the page depends on this list. -->
+  <nav class="social" aria-label="Follow Steigenberger Hotel Doha on social media">
+    <a class="social-link" href="https://www.tiktok.com/@steigenbergerdoha" rel="noopener" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16.6 5.82c-.9-.83-1.47-1.99-1.6-3.32h-3.03v13.44c0 1.66-1.35 3-3.01 3a3.01 3.01 0 0 1-3.01-3c0-1.79 1.6-3.24 3.42-3 .3.04.6.11.87.22V9.4a6.13 6.13 0 0 0-.87-.06 6.16 6.16 0 0 0-6.16 6.16A6.16 6.16 0 0 0 9.36 21.66a6.16 6.16 0 0 0 6.16-6.16V9.01a9.1 9.1 0 0 0 5.32 1.7V7.68a5.87 5.87 0 0 1-4.24-1.86z"/></svg>
+    </a>
+    <a class="social-link" href="https://www.facebook.com/SteigenbergerDoha/" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.91h-2.33v7.03c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+    </a>
+    <a class="social-link" href="https://www.instagram.com/steigenbergerdoha/?hl=fr" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2c-2.72 0-3.06.01-4.12.06-1.06.05-1.79.22-2.43.47-.66.26-1.22.6-1.77 1.15-.55.55-.89 1.11-1.15 1.77-.25.64-.42 1.37-.47 2.43C2.01 8.94 2 9.28 2 12s.01 3.06.06 4.12c.05 1.06.22 1.79.47 2.43.26.66.6 1.22 1.15 1.77.55.55 1.11.89 1.77 1.15.64.25 1.37.42 2.43.47C8.94 21.99 9.28 22 12 22s3.06-.01 4.12-.06c1.06-.05 1.79-.22 2.43-.47.66-.26 1.22-.6 1.77-1.15.55-.55.89-1.11 1.15-1.77.25-.64.42-1.37.47-2.43.05-1.06.06-1.4.06-4.12s-.01-3.06-.06-4.12c-.05-1.06-.22-1.79-.47-2.43-.26-.66-.6-1.22-1.15-1.77-.55-.55-1.11-.89-1.77-1.15-.64-.25-1.37-.42-2.43-.47C15.06 2.01 14.72 2 12 2zm0 1.8c2.67 0 2.99.01 4.04.06.98.04 1.5.21 1.86.35.47.18.8.4 1.15.75.35.35.57.68.75 1.15.14.36.31.88.35 1.86.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.04.98-.21 1.5-.35 1.86-.18.47-.4.8-.75 1.15-.35.35-.68.57-1.15.75-.36.14-.88.31-1.86.35-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-.98-.04-1.5-.21-1.86-.35-.47-.18-.8-.4-1.15-.75-.35-.35-.57-.68-.75-1.15-.14-.36-.31-.88-.35-1.86-.05-1.05-.06-1.37-.06-4.04s.01-2.99.06-4.04c.04-.98.21-1.5.35-1.86.18-.47.4-.8.75-1.15.35-.35.68-.57 1.15-.75.36-.14.88-.31 1.86-.35C9.01 3.81 9.33 3.8 12 3.8zm0 3.05a5.15 5.15 0 1 0 0 10.3 5.15 5.15 0 0 0 0-10.3zm0 8.5a3.35 3.35 0 1 1 0-6.7 3.35 3.35 0 0 1 0 6.7zm5.35-8.7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+    </a>
+  </nav>
+  <p>&copy; 2026 Steigenberger Hotel Doha</p>
+</footer>
+
+</div>
+
+<!--
+  SPECULATION RULES — the "instant tap" trick, Chromium only (Safari/Firefox
+  ignore this tag safely). Lists only same-site URLs; browsers refuse to
+  prerender fully cross-site targets so there's no point listing them.
+  Keep this array in sync with the same-site cards above.
+-->
+<script type="speculationrules">
+{"prerender":[{"urls":["https://directory.steigenbergerhoteldoha.com/","https://pillowmenu.steigenbergerhoteldoha.com/","https://tv.steigenbergerhoteldoha.com/","https://spa.steigenbergerhoteldoha.com/","https://excursions.steigenbergerhoteldoha.com/","https://limousine.steigenbergerhoteldoha.com/"],"eagerness":"moderate"}]}
+</script>
+
+<!-- Structured data, so the page surfaces sensibly if it's ever shared or indexed. -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Hotel","name":"Steigenberger Hotel Doha","description":"The flagship hotel of H World International in GCC, under one of its renowned brands, Steigenberger Resorts & Hotels.","url":"https://links.steigenbergerhoteldoha.com/","address":{"@type":"PostalAddress","addressLocality":"Doha","addressCountry":"QA"},"sameAs":["https://directory.steigenbergerhoteldoha.com/","https://pillowmenu.steigenbergerhoteldoha.com/","https://tv.steigenbergerhoteldoha.com/","https://app.getalacarte.com/#/app/dineout/restaurantcollection/steigenberger-hotel-doha","https://hrewards.com/en/steigenberger-hotel-doha/deals","https://spa.steigenbergerhoteldoha.com/","https://excursions.steigenbergerhoteldoha.com/","https://limousine.steigenbergerhoteldoha.com/"]}
+</script>
+
+<!-- The only JavaScript on the page: shows the progress bar at the top so a
+     slow destination doesn't look like a dead tap. Wrapped in try/catch so
+     any failure leaves plain working links behind. -->
+<script>
+try{
+var p=document.getElementById('progress'),t;
+function go(a){if(!p)return;p.classList.add('on');a.classList.add('is-loading');
+clearTimeout(t);t=setTimeout(function(){p.classList.remove('on');a.classList.remove('is-loading')},12000);}
+document.addEventListener('click',function(e){
+var a=e.target.closest&&e.target.closest('a.card');
+if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;go(a);},{passive:true});
+window.addEventListener('pageshow',function(){if(p)p.classList.remove('on');
+var l=document.querySelector('.card.is-loading');if(l)l.classList.remove('is-loading');});
+}catch(_){}
+</script>
+</body>
+</html>
